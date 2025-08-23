@@ -50,3 +50,28 @@ Foco na proteção contra umidade e no correto escoamento de água.
 Aplicar manta asfáltica ou produto líquido em áreas molhadas.
 Garantir inclinação adequada de pisos e ralos para escoamento.
 Posicionar ralos no nível correto e integrá-los ao piso.
+
+# informações do contato:
+Telefone: 14 99856 9461
+Email: joaorodrigodasilva 
+Endereço: Bauru
+Horário de Atendimento: segunda a sábado
+
+# estilo de cores:
+  /* Fundo azul */
+  #0057A0;
+
+  /* Texto branco */
+  #FFFFFF;
+
+  /* Cinza metálico para o "JR" */
+  #A9A9A9;
+
+  /* Amarelo do prédio */
+  #FFD700;
+
+  /* Laranja do prédio */
+  #FF8C00;
+
+  /* Borda circular branca */
+  #FFFFFF;

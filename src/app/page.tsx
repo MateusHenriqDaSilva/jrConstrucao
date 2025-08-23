@@ -233,15 +233,15 @@ export default function Home() {
                 <div className={styles.contactInfo}>
                   <div>
                     <h4 className={styles.contactLabel}>Telefone</h4>
-                    <p className={styles.contactText}>(11) 99999-9999</p>
+                    <p className={styles.contactText}>(14) 99856 9461</p>
                   </div>
                   <div>
                     <h4 className={styles.contactLabel}>Email</h4>
-                    <p className={styles.contactText}>contato@jrconstrucao.com.br</p>
+                    <p className={styles.contactText}>Joaorodrigodasilva1204@gmail.com</p>
                   </div>
                   <div>
                     <h4 className={styles.contactLabel}>Endereço</h4>
-                    <p className={styles.contactText}>Rua das Construções, 123 - Centro, São Paulo - SP</p>
+                    <p className={styles.contactText}>Bauru e regiões - SP</p>
                   </div>
                   <div>
                     <h4 className={styles.contactLabel}>Horário de Atendimento</h4>
