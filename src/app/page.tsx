@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../../styles/page.module.css';
-import Link from 'Next/Link'
 
 type TabType = 'destaques' | 'servicos' | 'beneficios' | 'contato';
 
