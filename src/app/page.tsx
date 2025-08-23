@@ -237,7 +237,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className={styles.contactLabel}>Email</h4>
-                    <p className={styles.contactText}>Joaorodrigodasilva1204@gmail.com</p>
+                    <p className={styles.contactText}>joaorodrigodasilva1204@gmail.com</p>
                   </div>
                   <div>
                     <h4 className={styles.contactLabel}>Endereço</h4>
