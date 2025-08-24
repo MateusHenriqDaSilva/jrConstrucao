@@ -52,10 +52,15 @@ Garantir inclinação adequada de pisos e ralos para escoamento.
 Posicionar ralos no nível correto e integrá-los ao piso.
 
 # informações do contato:
+Nome: João Rodrigo da Silva
 Telefone: 14 99856 9461
-Email: joaorodrigodasilva 
-Endereço: Bauru
+Email: joaorodrigodasilva1204@gmail.com
+Endereço: Bauru e regiões
 Horário de Atendimento: segunda a sábado
+
+
+# Dominio
+cpf: 42456964861
 
 # estilo de cores:
   /* Fundo azul */

@@ -1,13 +1,13 @@
 "use client";
-// pages/index.tsx
 import { useState } from 'react';
 import Head from 'next/head';
-import styles from '../../styles/page.module.css';
+import styles from '../../styles/page.module.css'
 
 type TabType = 'destaques' | 'servicos' | 'beneficios' | 'contato';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>('destaques');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const servicos = [
     {
@@ -64,6 +64,7 @@ export default function Home() {
       <Head>
         <title>JR Construção</title>
         <meta name="description" content="Serviços especializados em construção e reforma" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -79,6 +80,8 @@ export default function Home() {
                 className={styles.logoImage}
               />
             </div>
+            
+            {/* Navegação Desktop */}
             <nav className={styles.desktopNav}>
               <ul className={styles.navList}>
                 <li>
@@ -115,8 +118,67 @@ export default function Home() {
                 </li>
               </ul>
             </nav>
-            <button className={styles.mobileMenuButton}>☰</button>
+
+            {/* Botão Menu Mobile */}
+            <button 
+              className={styles.mobileMenuButton}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? '✕' : '☰'}
+            </button>
           </div>
+
+          {/* Menu Mobile */}
+          {isMobileMenuOpen && (
+            <nav className={styles.mobileNav}>
+              <ul className={styles.mobileNavList}>
+                <li>
+                  <button
+                    onClick={() => {
+                      setActiveTab('destaques');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`${styles.mobileNavButton} ${activeTab === 'destaques' ? styles.activeMobileNavButton : ''}`}
+                  >
+                    Destaques
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setActiveTab('servicos');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`${styles.mobileNavButton} ${activeTab === 'servicos' ? styles.activeMobileNavButton : ''}`}
+                  >
+                    Serviços
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setActiveTab('beneficios');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`${styles.mobileNavButton} ${activeTab === 'beneficios' ? styles.activeMobileNavButton : ''}`}
+                  >
+                    Benefícios
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setActiveTab('contato');
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`${styles.mobileNavButton} ${activeTab === 'contato' ? styles.activeMobileNavButton : ''}`}
+                  >
+                    Contato
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          )}
         </div>
       </header>
 

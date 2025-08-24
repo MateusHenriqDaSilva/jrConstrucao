@@ -16,18 +16,19 @@
   --cinza-escuro: #616161;
 }
 
-/* Reset para ocupar toda a tela */
-html, body, #__next {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+/* Removido seletor global * */
+/* Usar classes específicas em vez de seletores globais */
 
 .fullScreenContainer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: var(--cinza-claro);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.fullScreenContainer * {
+  box-sizing: border-box;
 }
 
 .header {
@@ -36,7 +37,7 @@ html, body, #__next {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .headerContainer {
@@ -44,13 +45,15 @@ html, body, #__next {
   margin: 0 auto;
   width: 100%;
   padding: 0 1rem;
+  position: relative;
 }
 
 .headerContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 0;
+  padding: 0.5rem 0;
+  position: relative;
 }
 
 .logo {
@@ -72,7 +75,7 @@ html, body, #__next {
 
 .navList {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -82,11 +85,13 @@ html, body, #__next {
   background: none;
   border: none;
   color: var(--branco-texto);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s;
+  min-height: 44px;
+  min-width: 44px;
 }
 
 .navButton:hover {
@@ -95,6 +100,7 @@ html, body, #__next {
 
 .activeNavButton {
   background-color: var(--azul-escuro);
+  font-weight: 600;
 }
 
 .mobileMenuButton {
@@ -103,6 +109,11 @@ html, body, #__next {
   color: var(--branco-texto);
   font-size: 1.5rem;
   cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -111,13 +122,63 @@ html, body, #__next {
   }
 }
 
+/* Menu Mobile */
+.mobileNav {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--azul-fundo);
+  padding: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+@media (min-width: 768px) {
+  .mobileNav {
+    display: none;
+  }
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileNavButton {
+  background: none;
+  border: none;
+  color: var(--branco-texto);
+  padding: 1rem;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  min-height: 44px;
+}
+
+.mobileNavButton:hover {
+  background-color: var(--azul-escuro);
+}
+
+.activeMobileNavButton {
+  background-color: var(--azul-escuro);
+  font-weight: 600;
+}
+
 .mainContent {
   flex: 1;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 2rem 1rem;
-  box-sizing: border-box;
 }
 
 .tabContent {
@@ -165,16 +226,15 @@ html, body, #__next {
 .card {
   background-color: var(--branco-texto);
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   height: 100%;
-  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
 .hoverCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .cardTitle {
@@ -204,11 +264,22 @@ html, body, #__next {
   margin-top: 1rem;
 }
 
-.highlightText {
+.highlightButton {
+  background: none;
+  border: none;
   color: var(--branco-texto);
   font-weight: 600;
-  margin: 0;
+  cursor: pointer;
   text-align: center;
+  padding: 0.5rem;
+  margin: 0;
+  width: 100%;
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.highlightButton:hover {
+  text-decoration: underline;
 }
 
 .icon {
@@ -220,7 +291,7 @@ html, body, #__next {
 .infoSection {
   background-color: var(--azul-claro);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-top: 3rem;
 }
 
@@ -247,7 +318,7 @@ html, body, #__next {
   background-color: var(--azul-fundo);
   color: var(--branco-texto);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   text-align: center;
   margin-top: 3rem;
 }
@@ -261,18 +332,20 @@ html, body, #__next {
 .ctaText {
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .ctaButton {
   background-color: var(--amarelo-predio);
   color: var(--azul-fundo);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  min-height: 44px;
 }
 
 .ctaButton:hover {
@@ -288,40 +361,43 @@ html, body, #__next {
 .contactLabel {
   font-weight: 600;
   color: var(--azul-fundo);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
 }
 
 .contactText {
   color: var(--cinza-escuro);
   margin: 0;
+  line-height: 1.5;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .formLabel {
   display: block;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   color: var(--azul-fundo);
+  font-size: 1.1rem;
 }
 
 .formInput, .formTextarea {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--cinza-medio);
-  border-radius: 4px;
+  padding: 0.875rem;
+  border: 2px solid var(--cinza-medio);
+  border-radius: 8px;
   font-size: 1rem;
-  box-sizing: border-box;
+  transition: border-color 0.3s;
 }
 
 .formInput:focus, .formTextarea:focus {
   outline: none;
   border-color: var(--azul-fundo);
-  box-shadow: 0 0 0 2px rgba(0, 87, 160, 0.2);
+  box-shadow: 0 0 0 3px rgba(0, 87, 160, 0.2);
 }
 
 .formTextarea {
@@ -333,12 +409,14 @@ html, body, #__next {
   background-color: var(--azul-fundo);
   color: var(--branco-texto);
   border: none;
-  padding: 0.75rem;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
+  min-height: 44px;
+  margin-top: 0.5rem;
 }
 
 .submitButton:hover {
@@ -361,40 +439,77 @@ html, body, #__next {
 
 .logoContainer {
   display: flex;
-  margin: 0px;
-  padding: 0px;
   align-items: center;
 }
 
 .logoImage {
-  height: 60px; /* Ajuste conforme necessário */
-  width: 130px;
-  object-fit: fill;
-  margin: 0px;
-  padding: 0px;
-}
-
-.highlightButton {
-  background: none;
-  border: none;
-  color: var(--branco-texto);
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.highlightButton:hover {
-  text-decoration: underline;
+  height: 50px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Para mobile */
 @media (max-width: 767px) {
-  .logoImage {
-    height: 40px; /* Tamanho menor para mobile */
+  .headerContent {
+    padding: 0.5rem 0;
   }
+  
+  .mainContent {
+    padding: 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card {
+    padding: 1.25rem;
+  }
+  
+  .grid2Cols,
+  .grid4Cols {
+    gap: 1rem;
+  }
+  
+  .infoSection,
+  .ctaSection {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .formInput,
+  .formTextarea {
+    padding: 0.75rem;
+  }
+  
+  .logoImage {
+    height: 40px;
+  }
+  
+  .mobileNavButton {
+    font-size: 1rem;
+    padding: 0.875rem;
+  }
+  
+  /* Prevenir zoom em inputs no iOS */
+  .formInput,
+  .formTextarea,
+  .formInput select {
+    font-size: 16px;
+  }
+}
+
+/* Melhorar scroll em mobile */
+.fullScreenContainer {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Otimizar animações para mobile - usando classe específica */
+.reduceMotion * {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
 }
 
 @keyframes fadeIn {
@@ -406,4 +521,21 @@ html, body, #__next {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Estilos para elementos de formulário dentro do container */
+.fullScreenContainer input,
+.fullScreenContainer select,
+.fullScreenContainer textarea {
+  font-size: 16px; /* Previne zoom no iOS */
+}
+
+.fullScreenContainer ul,
+.fullScreenContainer ol {
+  margin: 0;
+  padding: 0;
+}
+
+.fullScreenContainer li {
+  margin-bottom: 0.5rem;
 }
